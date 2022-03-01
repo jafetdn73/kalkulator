@@ -1,0 +1,28 @@
+.container {
+    background-color:antiquewhite;
+    width:260px;
+    margin:auto;
+}
+
+.monitor-panel {
+    height: 30px;
+    width:97%;
+    font-size: 28px;
+}
+
+.tombol-panel {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tombol {
+    background-color: burlywood;
+    padding:10px;
+    width: 40px;
+    font: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+

@@ -1,0 +1,12 @@
+.container {
+    background-color:antiquewhite;
+    width:300px;
+    margin:auto;
+}
+
+.monitor-panel {
+    height: 30px;
+    width:100%;
+    margin:5px;
+}
+

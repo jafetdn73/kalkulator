@@ -1,0 +1,22 @@
+.container {
+    background-color:antiquewhite;
+    width:300px;
+    margin:auto;
+}
+
+.monitor-panel {
+    height: 30px;
+    width:97%;
+    font-size: 28px;
+}
+
+.tombol-panel {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tombol {
+    padding:10px;
+    
+}
+
