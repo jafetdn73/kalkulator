@@ -2,7 +2,7 @@ const tombol = document.getElementsByClassName("tombol");
 const monitorPanel = document.getElementsByClassName("monitor-panel");
 var nilaiMemori=0;
 var nilaiTombol="";
-var nilaiTombolOperatorTerakhir="";
+var nilaiTombolTerakhir="";
 var modeOperator=false;
 monitorPanel[0].value=0;
 
@@ -12,29 +12,42 @@ for (let i=0;i<tombol.length;i++)
         nilaiTombol=tombol[i].innerText;
         switch (nilaiTombol) {
             case "+":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                //nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
+                nilaiTombolTerakhir=nilaiTombol;
                 break;
             case "-":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
+                nilaiTombolTerakhir=nilaiTombol;
                 break;
             case "x":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
+                nilaiTombolTerakhir=nilaiTombol;
                 break;
             case "/":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
-                break;
-            case "=":
-                modeOperator=true;
+                nilaiTombolTerakhir=nilaiTombol;
                 break;
             case "CLEAR":
+                // alert("Menekan Tombol "+nilaiTombol);
                 modeOperator=false;
                 nilaiMemori=0;
-                nilaiTombolOperatorTerakhir="";
                 monitorPanel[0].value=nilaiMemori;
                 break;
             default:
+                // alert("Menekan Tombol Angka "+nilaiTombol);
+                // nilaiMemori=parseInt(monitorPanel[0].value+nilaiTombol);
+                // monitorPanel[0].value=nilaiMemori;
                 if (nilaiTombol>="0" && nilaiTombol<="9")
                 {
+                    // alert("Menekan Tombol Angka "+nilaiTombol);
                     if (modeOperator===true)
                     {
                         monitorPanel[0].value=parseInt(nilaiTombol);
@@ -51,57 +64,32 @@ for (let i=0;i<tombol.length;i++)
 
           if (nilaiTombol==="+" || nilaiTombol==="-" || nilaiTombol==="x" || nilaiTombol==="/" || nilaiTombol==="=")
           {
+                // alert("Menekan Tombol Operator "+nilaiTombol);
                 modeOperator=true;
-                if (nilaiTombolOperatorTerakhir==="+")
+                if (nilaiTombolTerakhir==="+")
                 {
-                    nilaiTombolOperatorTerakhir=nilaiTombol;
                     nilaiMemori=nilaiMemori+parseInt(monitorPanel[0].value);
                     monitorPanel[0].value=nilaiMemori; 
                 }
                 else
-                {
-                    if (nilaiTombolOperatorTerakhir==="-")
+                    if (nilaiTombolTerakhir==="-")
                     {
-                        nilaiTombolOperatorTerakhir=nilaiTombol;
                         nilaiMemori=nilaiMemori-parseInt(monitorPanel[0].value);
                         monitorPanel[0].value=nilaiMemori; 
                     }
                     else
-                    {
-                        if (nilaiTombolOperatorTerakhir==="x")
+                        if (nilaiTombolTerakhir==="x")
                         {
-                            nilaiTombolOperatorTerakhir=nilaiTombol;
                             nilaiMemori=nilaiMemori*parseInt(monitorPanel[0].value);
                             monitorPanel[0].value=nilaiMemori; 
                         }
                         else
-                        {
-                            if (nilaiTombolOperatorTerakhir==="/")
+                            if (nilaiTombolTerakhir==="/")
                             {
-                                nilaiTombolOperatorTerakhir=nilaiTombol;
                                 nilaiMemori=nilaiMemori/parseInt(monitorPanel[0].value);
                                 monitorPanel[0].value=nilaiMemori; 
                             }
-                            else
-                            {
-                                if (nilaiTombolOperatorTerakhir==="=")
-                                {
-                                    nilaiTombolOperatorTerakhir=nilaiTombol;
-                                }
-                                else
-                                {
-                                    if (nilaiTombolOperatorTerakhir==="")
-                                    {
-                                        nilaiTombolOperatorTerakhir=nilaiTombol;
-                                        nilaiMemori=parseInt(monitorPanel[0].value);
-                                        monitorPanel[0].value=nilaiMemori; 
-                                    }
-                                }
-                            }
-                        }
-                    }
 
-                }
           }
  })
 }

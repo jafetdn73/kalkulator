@@ -12,29 +12,70 @@ for (let i=0;i<tombol.length;i++)
         nilaiTombol=tombol[i].innerText;
         switch (nilaiTombol) {
             case "+":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                //nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
+                // nilaiTombolOperatorTerakhir=nilaiTombol;
                 break;
             case "-":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                // nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
+                // nilaiTombolOperatorTerakhir=nilaiTombol;
                 break;
             case "x":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                // nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
+                // nilaiTombolOperatorTerakhir=nilaiTombol;
                 break;
             case "/":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
+                // nilaiMemori=parseInt(monitorPanel[0].value);
                 modeOperator=true;
+                // nilaiTombolOperatorTerakhir=nilaiTombol;
                 break;
             case "=":
+                // alert("Menekan Tombol Operator "+nilaiTombol);
                 modeOperator=true;
+                if (nilaiTombolTerakhir==="+")
+                {
+                    nilaiMemori=nilaiMemori+parseInt(monitorPanel[0].value);
+                    monitorPanel[0].value=nilaiMemori; 
+                }
+                else
+                    if (nilaiTombolTerakhir==="-")
+                    {
+                        nilaiMemori=nilaiMemori-parseInt(monitorPanel[0].value);
+                        monitorPanel[0].value=nilaiMemori; 
+                    }
+                    else
+                        if (nilaiTombolTerakhir==="x")
+                        {
+                            nilaiMemori=nilaiMemori*parseInt(monitorPanel[0].value);
+                            monitorPanel[0].value=nilaiMemori; 
+                        }
+                        else
+                            if (nilaiTombolTerakhir==="/")
+                            {
+                                nilaiMemori=nilaiMemori/parseInt(monitorPanel[0].value);
+                                monitorPanel[0].value=nilaiMemori; 
+                            }
                 break;
             case "CLEAR":
+                // alert("Menekan Tombol "+nilaiTombol);
                 modeOperator=false;
                 nilaiMemori=0;
                 nilaiTombolOperatorTerakhir="";
                 monitorPanel[0].value=nilaiMemori;
                 break;
             default:
+                // alert("Menekan Tombol Angka "+nilaiTombol);
+                //  nilaiMemori=parseInt(monitorPanel[0].value+nilaiTombol);
+                // monitorPanel[0].value=nilaiMemori;
                 if (nilaiTombol>="0" && nilaiTombol<="9")
                 {
+                    // alert("Menekan Tombol Angka "+nilaiTombol);
                     if (modeOperator===true)
                     {
                         monitorPanel[0].value=parseInt(nilaiTombol);
@@ -43,17 +84,20 @@ for (let i=0;i<tombol.length;i++)
                 else
                     {
                         monitorPanel[0].value=parseInt(monitorPanel[0].value+nilaiTombol);
+                        // nilaiMemori=monitorPanel[0].value;
                      }
                 }
                 
                 break;
           }
 
-          if (nilaiTombol==="+" || nilaiTombol==="-" || nilaiTombol==="x" || nilaiTombol==="/" || nilaiTombol==="=")
+          if (nilaiTombol==="+" || nilaiTombol==="-" || nilaiTombol==="x" || nilaiTombol==="/")
           {
+                // alert("Menekan Tombol Operator "+nilaiTombol);
                 modeOperator=true;
                 if (nilaiTombolOperatorTerakhir==="+")
                 {
+                    // alert("+");
                     nilaiTombolOperatorTerakhir=nilaiTombol;
                     nilaiMemori=nilaiMemori+parseInt(monitorPanel[0].value);
                     monitorPanel[0].value=nilaiMemori; 
@@ -62,6 +106,7 @@ for (let i=0;i<tombol.length;i++)
                 {
                     if (nilaiTombolOperatorTerakhir==="-")
                     {
+                        // alert("-");
                         nilaiTombolOperatorTerakhir=nilaiTombol;
                         nilaiMemori=nilaiMemori-parseInt(monitorPanel[0].value);
                         monitorPanel[0].value=nilaiMemori; 
@@ -70,6 +115,7 @@ for (let i=0;i<tombol.length;i++)
                     {
                         if (nilaiTombolOperatorTerakhir==="x")
                         {
+                            // alert("x");
                             nilaiTombolOperatorTerakhir=nilaiTombol;
                             nilaiMemori=nilaiMemori*parseInt(monitorPanel[0].value);
                             monitorPanel[0].value=nilaiMemori; 
@@ -78,25 +124,21 @@ for (let i=0;i<tombol.length;i++)
                         {
                             if (nilaiTombolOperatorTerakhir==="/")
                             {
+                                // alert("/");
                                 nilaiTombolOperatorTerakhir=nilaiTombol;
                                 nilaiMemori=nilaiMemori/parseInt(monitorPanel[0].value);
                                 monitorPanel[0].value=nilaiMemori; 
                             }
                             else
                             {
-                                if (nilaiTombolOperatorTerakhir==="=")
-                                {
+                               if (nilaiTombolOperatorTerakhir==="")
+                               {
+                                    // alert("kosong");
                                     nilaiTombolOperatorTerakhir=nilaiTombol;
-                                }
-                                else
-                                {
-                                    if (nilaiTombolOperatorTerakhir==="")
-                                    {
-                                        nilaiTombolOperatorTerakhir=nilaiTombol;
-                                        nilaiMemori=parseInt(monitorPanel[0].value);
-                                        monitorPanel[0].value=nilaiMemori; 
-                                    }
-                                }
+                                    nilaiMemori=parseInt(monitorPanel[0].value);
+                                    monitorPanel[0].value=nilaiMemori; 
+                               }
+                                
                             }
                         }
                     }
